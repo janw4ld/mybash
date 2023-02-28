@@ -4,6 +4,15 @@ function loop() {
     while :; do "$1" || break; done
 }
 
+function get_var() {
+  trap 'stty sane' SIGINT
+
+  [[ $1 =~ ^[a-zA-Z_][a-zA-Z0-9_]*$ ]] || {
+    echo "Invalid variable name: $1"
+    return 1
+  } && export "$1"="$(keepassxc-cli show -sa password "$KEEPASS_DB" "$1")"
+}
+
 function wdb() {
 	adb connect 192.168.1.193:$1
 }
