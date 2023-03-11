@@ -13,6 +13,12 @@ function get_var() {
   } && export "$1"="$(keepassxc-cli show -sa password "$KEEPASS_DB" "$1")"
 }
 
+function esp_env() {
+  ESP_PATH=/home/misc/.dot/.esp
+  export IDF_TOOLS_PATH=$ESP_PATH/tools
+  source $ESP_PATH/esp-idf/export.sh
+}
+
 function wdb() {
 	adb connect 192.168.1.193:$1
 }

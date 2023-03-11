@@ -60,6 +60,7 @@ done
 #:$HOME/.local/share/flatpak/exports/share
 
 export EDITOR=/usr/bin/nvim
+
 export PATH=$PATH:~/.local/bin\
 :~/.cargo/bin/\
 :$HOME/.platformio/packages/toolchain-atmelavr/bin/\
@@ -69,6 +70,10 @@ export PATH=$PATH:~/.local/bin\
 :/home/misc/bin/android-sdk/emulator/
 
 export CHROME_EXECUTABLE=/usr/bin/chromium-browser
+
+export KEEPASS_DB="$HOME/Documents/keepass.kdbx"
+
+export ESP_PATH="/home/misc/.dot/.esp"
 
 HISTIGNORE="cd *"
 export HISTSIZE=50000
