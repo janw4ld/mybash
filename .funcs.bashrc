@@ -14,7 +14,12 @@ function get_var() {
 }
 
 function esp_env() {
-  ESP_PATH=/home/misc/.dot/.esp
+  [[ -d "$1" ]] && ESP_PATH="$1" || {
+    [[ -z "$ESP_PATH" ]] && {
+      echo "ESP_PATH not set or not a directory"
+      return 1
+    }
+  }
   export IDF_TOOLS_PATH=$ESP_PATH/tools
   source $ESP_PATH/esp-idf/export.sh
 }
